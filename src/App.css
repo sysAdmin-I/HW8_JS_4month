@@ -1,0 +1,29 @@
+.App {
+  text-align: center;
+}
+
+:root {
+  --font-family: "Roboto", sans-serif;
+  --second-family: "Arial", sans-serif;
+  --third-family: "Inter", sans-serif;
+  --font3: "Font Awesome 5 Free", sans-serif;
+}
+
+label {
+  display: inline-flex;
+  flex-direction: column;
+}
+
+label .error {
+  border: 1px solid red;
+}
+
+label span {
+  font-size: 10px;
+  text-align: left;
+  color: red;
+}
+
+label input {
+  outline: none;
+}

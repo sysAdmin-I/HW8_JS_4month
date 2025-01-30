@@ -1,0 +1,38 @@
+.pokemonCard {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  //gap: 10px;
+  border: 1px solid #fff;
+  border-radius: 8px;
+  padding: 8px 12px 15px 12px;
+  width: 315px;
+  height: 250px;
+  .pokemonCardImage {
+    width: 120px;
+    height: 120px;
+    object-fit: contain;
+    margin: 8px 110px 0 110px;
+  }
+  .pokemonTitle {
+    font-family: var(--second-family);
+    font-weight: 700;
+    font-size: 24px;
+    color: #fff;
+  }
+  .pokemonDetailBtn {
+    border-radius: 8px;
+    padding: 10px;
+    width: 320px;
+    height: 45px;
+    background: #db00ff;
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 157%;
+    text-align: center;
+    color: #fff;
+    margin: 13px 32px 0 32px;
+  }
+}
