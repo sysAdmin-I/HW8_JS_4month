@@ -4,7 +4,7 @@ import Pagination from "../../components/pagination/Pagination";
 import PokemonCardPage from "../../pages/pokemonCardPage/PokemonCardPage";
 import classes from "./PokemonPage.module.scss";
 
-const BASE_URL = "http://localhost:5001/results";
+const BASE_URL = "https://pokeapi.co/api/v2/pokemon";
 const limit = 12;
 
 const PokemonPage = () => {
@@ -13,8 +13,8 @@ const PokemonPage = () => {
     const page = offset / limit + 1;
 
     const getPokemon = async () => {
-        const response = await axios.get(`${BASE_URL}?_limit=${limit}&_start=${offset}`);
-        setPokemon(response.data);
+        const response = await axios.get(`${BASE_URL}?limit=${limit}&offset=${offset}`);
+        setPokemon(response.data.results || []);
     };
 
     useEffect(() => {
@@ -36,9 +36,11 @@ const PokemonPage = () => {
                     <h2 className={classes.mainTitle}>Pokemon</h2>
                 </div>
                 <div className={classes.mainBlock}>
-                    {pokemon.map((pokemon) => (
-                        <PokemonCardPage key={pokemon.name} name={pokemon.name} url={pokemon.url} />
-                    ))}
+                    {Array.isArray(pokemon) && pokemon.length > 0
+                        ? pokemon.map((pokemon) => (
+                            <PokemonCardPage key={pokemon.name} name={pokemon.name} url={pokemon.url} />
+                        ))
+                        : null}
                 </div>
                 <Pagination prev={handlePrev} page={page} next={handleNext} />
             </div>
